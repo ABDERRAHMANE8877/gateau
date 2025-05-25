@@ -29,7 +29,7 @@ Ce projet est une plateforme web permettant aux utilisateurs de commander des g√
 
 # Cloner le repository
 git clone "repository-url" <br>
-cd <nom-du-projet>
+cd "nom-du-projet"
 
 # Installer les d√©pendances
 npm install
