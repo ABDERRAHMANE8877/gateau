@@ -28,18 +28,18 @@ Ce projet est une plateforme web permettant aux utilisateurs de commander des g�
 
 
 # Cloner le repository
-git clone <repository-url>
+git clone "repository-url" <br>
 cd <nom-du-projet>
 
 # Installer les dépendances
 npm install
 
 # Démarrer le serveur backend
-cd backend
+cd backend <br>
 python routes.py
 
 # Lancer le frontend
-cd frontend
+cd frontend <br>
 npm run dev
 
 
