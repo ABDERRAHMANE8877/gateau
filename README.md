@@ -20,7 +20,7 @@ Ce projet est une plateforme web permettant aux utilisateurs de commander des g�
 - *Frontend* : HTML, CSS, JavaScript (React.js)
 - *Backend* : Flask
 - *Base de données* : Mysql
-- *Outils de conception* : Figma, 
+- *Outils de conception* : Figma ,<br> https://www.figma.com/design/lBs8Xn6cxtVLssoiRY9rJo/Abderrahmane?node-id=0-1&t=6OEaYoOw5wXrjNQH-1, 
 - *Contrôle de version* : GitHub
 
 ### Technologies à intégrer
