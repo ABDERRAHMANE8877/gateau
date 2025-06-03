@@ -1,0 +1,49 @@
+.hero-container{
+    width: 50%;
+    padding-left: 3rem;
+}
+
+.textHero{
+    padding-bottom: 3rem;
+}
+
+.textHero button{
+    background-color: black;
+    color: white;
+    height: 50px ;
+    width: 20%; 
+    border-radius: 50px 0px 50px 0px; 
+    box-shadow: 2px 2px 25px gray;
+    border: 1px solid black;
+}
+
+.textHero button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.imagesHero{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.imagesHero img{
+    width: 120px;
+    height: 120px ; 
+    box-shadow: 2px 2px 15px gray;
+}
+
+.textHero > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1%;
+}
+
+.ligne{
+    height: 1px;
+    width: 15%;
+    background-color: black;
+}

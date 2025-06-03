@@ -1,0 +1,160 @@
+.favorites-page {
+  padding: 2rem;
+  font-family: 'Arial', sans-serif;
+  background-color: #f8fafc;
+}
+
+.favorites-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.favorites-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.favorites-subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
+.favorites-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.favorites-count {
+  background-color: #fce7f3;
+  color: #be185d;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  font-weight: bold;
+}
+
+.clear-button {
+  background-color: #fee2e2;
+  color: #b91c1c;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-button {
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+.cake-card {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.cake-top {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #444;
+  background-color: #fff;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.cake-image {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.cake-content {
+  padding: 1rem;
+}
+
+.cake-content h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  color: #111;
+}
+
+.cake-favori {
+  font-size: 0.9rem;
+  color: #f59e0b;
+  margin-bottom: 0.5rem;
+}
+
+.cake-price {
+  font-size: 1.1rem;
+  color: #dc2626;
+  font-weight: bold;
+}
+
+.remove-button {
+  margin-top: 0.75rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: #fce7f3;
+  color: #be185d;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.favorites-page.empty {
+  text-align: center;
+  padding: 6rem 1rem;
+}
+
+.favorites-page.empty h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.favorites-page.empty p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.discover-button {
+  background-color: #be185d49;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.discover-button:hover {
+  background-color: #be185d;
+}
