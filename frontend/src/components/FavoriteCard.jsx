@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import '../css/Favorites.css';
 import Confirmation from './Confirmation.jsx';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../context/AuthContext";
 
 
 const TestFavorites = () => {
-  const userId = 1;
+  const { user } = useAuth();
+  const userId = user?.id;
   const [favorites, setFavorites] = useState([]);
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedGateauId, setSelectedGateauId] = useState(null);
@@ -123,7 +125,7 @@ if (favorites.length === 0) {
             <div
               className="cake-image"
               style={{
-                backgroundImage: `url("https://via.placeholder.com/300x180?text=${encodeURIComponent(cake.nom)}")`
+                  backgroundImage: `url("https://placehold.co/300x180?text=${encodeURIComponent(cake.nom)}")`
               }}
             ></div>
             <div className="cake-content">

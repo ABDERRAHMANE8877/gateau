@@ -28,7 +28,7 @@ const Navbar = () => {
             {user ? (
                 <>
                     <div className="circle">
-                        <span>{user.charAt(0).toUpperCase()}</span>    
+                        <span>{user.username.charAt(0).toUpperCase()}</span>    
                     </div>
                     <button onClick={handleLogout}>Déconnexion</button>
                 </>

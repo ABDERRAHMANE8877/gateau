@@ -9,6 +9,8 @@ const Card = () => {
     const [error , setError] = useState(null)
     const { user } = useAuth();
 
+    
+
     useEffect(() => {
         fetch('http://localhost:5000/cakes').then(
             (response) => {
@@ -44,11 +46,13 @@ const Card = () => {
 
   const handleAddFavorite = (cakeId) => {
     if (!user) return alert("Veuillez vous connecter");
+    console.log("Utilisateur connecté :", user);
+
     fetch("http://localhost:5000/favoris", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        user_id: user, // À adapter selon la structure de l'utilisateur
+        user_id: user.id, 
         id_gateau: cakeId,
       }),
     })

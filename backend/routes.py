@@ -47,8 +47,7 @@ def login():
 
     user = authenticate_user(email, password)
     if user:
-        return jsonify({"message": "Login successful", "user": user["username"]}), 200 # type: ignore
-
+        return jsonify({"message": "Login successful","user": {"id": user["id"],  "username": user["username"]}}), 200
     return jsonify({"error": "Invalid credentials"}), 401
 
 @app.route("/acheter", methods=["POST"])
