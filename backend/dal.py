@@ -5,9 +5,9 @@ def get_connection():
     try:
         connection = mysql.connector.connect(
             host='localhost',
-            database='cake_db',
+            database='auth_db',
             user='root',
-            password='',
+            password='abderrahmane',
             charset='utf8'
         )
         if connection.is_connected():

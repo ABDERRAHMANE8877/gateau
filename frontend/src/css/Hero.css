@@ -1,49 +1,100 @@
-.hero-container{
-    width: 50%;
-    padding-left: 3rem;
+.heroContainer{
+    display: flex;
+    width: 100%;
+    height: 87vh;
+    gap: 4%;
 }
 
-.textHero{
-    padding-bottom: 3rem;
+.leftHero{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5rem 1rem;
 }
 
-.textHero button{
-    background-color: black;
-    color: white;
-    height: 50px ;
-    width: 20%; 
-    border-radius: 50px 0px 50px 0px; 
-    box-shadow: 2px 2px 25px gray;
+.leftHero > div{
+    display: flex;
+    gap: 4px;
+}
+
+.leftHero button{
     border: 1px solid black;
+    height: 2.5rem;
 }
 
-.textHero button:hover{
+.leftHero button:first-child:hover{
+    color: black;
+    background-color: white;
+    transition: 0.5s ease-in-out;
+}
+
+.leftHero button:first-child {
+    background-color: black;
+    width: 10rem;
+}
+
+.leftHero button:first-child > a {
+    color: white;
+    font-weight: 400;
+}
+
+.leftHero button:first-child > a:hover {
+    color: black;
+}
+
+.leftHero button:nth-child(2)
+{
     background-color: white;
     color: black;
-    border: 1px solid black;
+    width: 8rem;
 }
 
-.imagesHero{
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
+.leftHero button:nth-child(2) > a
+{
+    font-weight: 400;
 }
 
-.imagesHero img{
-    width: 120px;
-    height: 120px ; 
-    box-shadow: 2px 2px 15px gray;
+.leftHero button:nth-child(2) > a:hover
+{
+    font-weight: 700;
 }
 
-.textHero > div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 1%;
+
+.leftHero h2{
+    font-size: 3.3rem;
 }
 
-.ligne{
-    height: 1px;
-    width: 15%;
-    background-color: black;
+.leftHero p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1rem;
+    padding-bottom: 0.3rem;
+}
+
+.avisHero{
+    padding-top: 16%;
+}
+
+.avisHero img{
+    width: 140px;
+}
+
+.rightHero{
+    background-color: #ffffff;
+    border-radius: 8px;
+    width: 48%;
+}
+
+.custom1{
+    color: #DF9900;
+}
+
+.custom2{
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: #DF9900;
 }

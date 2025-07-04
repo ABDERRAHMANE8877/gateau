@@ -1,0 +1,67 @@
+.backImg{
+    width: 20px;
+}
+
+.leftContainerConn{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.leftContainerConn input{
+    padding: 0.7rem;
+    width: 87%;
+    margin-bottom: 1.2rem;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.leftContainerConn button{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #d4a017;
+    background-color: #d4a017;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0.7rem;
+    width: 90%;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.customSpanConn{
+    text-decoration: underline;
+    color: #d4a017;
+}
+
+.leftContainerConn button:hover{
+    background-color: #fff;
+    color: #d4a017;
+    transition: 0.5s ease-in-out;
+}
+
+.connectionContainer{
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    position: relative;
+}
+
+.backImg{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.rightContainerConn{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.rightContainerConn img{
+    width: 100%;
+}

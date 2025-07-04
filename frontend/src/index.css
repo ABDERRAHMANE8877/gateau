@@ -1,19 +1,31 @@
 body{
-    margin: 0;
-    padding : 0;
-    background-color: #fdfff5;
+    padding: 0rem;
+    margin: 0rem;
 }
 
 h1{
-    font-family: "Crimson Text", serif;
-    font-weight: 400;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 700;
     font-style: normal;
+    font-size: 1.5rem;
 }
 
 a{
+    font-family: "Poppins", sans-serif;
+    font-weight: 610;
+    font-style: normal;
+    font-size: 0.9rem;
     text-decoration: none;
     color: black;
-    font-family: "Crimson Text", serif;
-    font-weight: 400;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+h2{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
     font-style: normal;
 }

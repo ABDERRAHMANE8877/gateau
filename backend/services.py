@@ -1,30 +1,19 @@
 from dal import get_connection
 import bcrypt
 
-def get_all_cakes():
-    conn = get_connection()
-    if conn : 
-        try : 
-            cursor = conn.cursor(dictionary=True) # type: ignore
-            cursor.execute("SELECT * FROM gateau")
-            results = cursor.fetchall()
-            return results
-        finally :
-            cursor.close()
-            conn.close()
-    else : 
-        return None
 
-def create_user(username, email, password):
+
+def create_user(username, email, password, role="client"):
     conn = get_connection()
     cursor = conn.cursor(dictionary=True) # type: ignore
-
 
     password_hash = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
     try:
-        cursor.execute("INSERT INTO users (username, email, password_hash) VALUES (%s, %s, %s)",
-                       (username, email, password_hash.decode('utf-8')))
+        cursor.execute(
+            "INSERT INTO users (username, email, password_hash, role) VALUES (%s, %s, %s, %s)",
+            (username, email, password_hash.decode('utf-8'), role)
+        )
         conn.commit() # type: ignore
         return True
     except Exception as e:
@@ -33,6 +22,7 @@ def create_user(username, email, password):
     finally:
         cursor.close()
         conn.close() # type: ignore
+
 
 def authenticate_user(email, password):
     conn = get_connection()
@@ -48,51 +38,71 @@ def authenticate_user(email, password):
         return user
     return None
 
-def acheter_gateau(user_id, id_gateau, quantite_achetee):
+
+def get_all_cakes():
     conn = get_connection()
-    cursor = conn.cursor() # type: ignore
+    cursor = conn.cursor(dictionary=True)  # type: ignore
+
     try:
-        # Vérifier si suffisamment en stock
-        cursor.execute("SELECT quantite FROM gateau WHERE id_gateau = %s", (id_gateau,))
-        stock = cursor.fetchone()[0] # type: ignore
-        if stock < quantite_achetee:
-            return {"error": "Quantité insuffisante"}, 400
-
-        # Insérer l'achat
-        cursor.execute("""
-            INSERT INTO achat (user_id, id_gateau, quantite_achetee)
-            VALUES (%s, %s, %s)
-        """, (user_id, id_gateau, quantite_achetee))
-
-        # Mettre à jour la quantité dans gateau
-        cursor.execute("""
-            UPDATE gateau SET quantite = quantite - %s WHERE id_gateau = %s
-        """, (quantite_achetee, id_gateau))
-
-        conn.commit() # type: ignore
-        return {"message": "Achat effectué"}, 200
+        cursor.execute("SELECT * FROM gateaux")
+        cakes = cursor.fetchall()
+        return cakes
     except Exception as e:
-        print("Erreur achat:", e)
-        conn.rollback() # type: ignore
-        return {"error": "Erreur serveur"}, 500
+        print("Error fetching cakes:", e)
+        return []
+    finally:
+        cursor.close()
+        conn.close()  # type: ignore
+
+
+def ajouter_gateau(categorie, nom, quantite, prix, image_url):
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True) # type: ignore
+
+    try:
+        cursor.execute(
+            "INSERT INTO gateaux (categorie, nom, quantite, prix, image_url) VALUES (%s, %s, %s, %s, %s)",
+            (categorie, nom, quantite, prix, image_url)
+        )
+        conn.commit() # type: ignore
+        return True
+    except Exception as e:
+        print("Erreur ajout gâteau :", e)
+        return False
     finally:
         cursor.close()
         conn.close() # type: ignore
 
-def ajouter_favori(user_id, id_gateau):
+
+def supprimer_gateau_par_nom(nom):
     conn = get_connection()
-    cursor = conn.cursor() # type: ignore
+    cursor = conn.cursor() # type: ignore # type: ignore
     try:
-        cursor.execute("""
-            INSERT IGNORE INTO favoris (user_id, id_gateau)
-            VALUES (%s, %s)
-        """, (user_id, id_gateau))
+        cursor.execute("DELETE FROM gateaux WHERE nom = %s", (nom,))
         conn.commit() # type: ignore
-        return {"message": "Ajouté aux favoris"}, 200
+        return cursor.rowcount  # nombre de lignes supprimées
     except Exception as e:
-        print("Erreur favoris:", e)
-        return {"error": "Erreur serveur"}, 500
+        print("Error:", e)
+        return 0
     finally:
         cursor.close()
         conn.close() # type: ignore
 
+
+def modifier_gateau_par_nom(nom, quantite, prix, categorie, image_url):
+    conn = get_connection()
+    cursor = conn.cursor()
+    try:
+        cursor.execute("""
+            UPDATE gateaux
+            SET quantite = %s, prix = %s, categorie = %s, image_url = %s
+            WHERE nom = %s
+        """, (quantite, prix, categorie, image_url, nom))
+        conn.commit()
+        return cursor.rowcount  # nombre de lignes modifiées
+    except Exception as e:
+        print("Error:", e)
+        return 0
+    finally:
+        cursor.close()
+        conn.close()
